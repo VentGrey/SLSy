@@ -2,10 +2,8 @@
 
 > And I know I don't need you now...
 
-
 [![JSR](https://jsr.io/badges/@ventgrey/slsy)](https://jsr.io/badges/@ventgrey/slsy)
 [![JSR Score](https://jsr.io/badges/@ventgrey/slsy/score)](https://jsr.io/@ventgrey/slsy)
-
 
 ## Introduction
 
@@ -20,11 +18,25 @@ update was 4 years ago.
 I don't know if this is part of Oak itself (doesn't seem to be). Take everything
 you see in this repo with a grain of salt.
 
+### TODO
+
+- [ ] Add more unit tests
+- [ ] Add more documentation
+- [ ] Add more examples
+- [ ] Optimize codebase as much as possible
+- [ ] Test if this works in these runtimes:
+  - ✅ Node (Tested on: `v20.12.1`)
+  - ✅ Deno (Tested on: `v1.43.3`)
+  - ❌ Browser
+  - ❔ Bun
+  - ❔ Cloudflare Workers
+
 ## Features :star:
 
 - Oak only. No other Deno servers are supported.
 - No CORS, browser tasks are for the browser, not the server.
-- Hopefully, tiny.
+- Hopefully, tiny and in sync with helmet.
+- Actively maintained.
 
 ## Examples
 
@@ -34,7 +46,7 @@ find an example using the `hide-powered-by` module:
 
 ```typescript
 import { Application, Context, Next } from "@oak/oak";
-import { Slsy } from "@ventgrey/slsy;
+import { Slsy } from "@ventgrey/slsy";
 
 const app: Application = new Application();
 const slsy: Slsy = new Slsy({
@@ -64,6 +76,11 @@ find it at
 [https://www.gnu.org/licenses/agpl-3.0.en.html](https://www.gnu.org/licenses/agpl-3.0.en.html).
 
 For more information, see [LICENSE](LICENSE)
+
+## Derivative code license
+
+Most shields come from `snelm` which uses the `helmet` source code, both are
+released under the MIT license.
 
 > SLSy stands for _Second Life Syndrome_ as a tribute to a song by Riverside ~
 > No copyright infringement intended.

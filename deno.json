@@ -1,6 +1,6 @@
 {
     "name": "@ventgrey/slsy",
-    "version": "0.1.1",
+    "version": "0.1.2",
     "exports": "./src/index.ts",
     "publish": {
         "include": [
@@ -30,7 +30,8 @@
                 "ban-untagged-todo",
                 "eqeqeq",
                 "explicit-function-return-type",
-                "no-console"
+                "no-console",
+                "prefer-ascii"
             ]
         }
     },
@@ -38,6 +39,9 @@
         "@oak/oak": "jsr:@oak/oak@^16.0.0",
         "@std/assert": "jsr:@std/assert@^0.225.1",
         "$interfaces": "./src/interfaces.ts",
+        "$shields/crossdomain": "./src/shields/crossdomain/index.ts",
+        "$shields/dnsprefetch": "./src/shields/dns-prefetch-control/index.ts",
+        "$shields/dontsniff": "./src/shields/dont-sniff-mimetype/index.ts",
         "$shields/hide_powered_by": "./src/shields/hide-powered-by/index.ts",
         "$shields/ienoopen": "./src/shields/ienoopen/index.ts",
         "$types": "./types/types.ts"
