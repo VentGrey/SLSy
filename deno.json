@@ -1,6 +1,6 @@
 {
     "name": "@ventgrey/slsy",
-    "version": "0.1.2",
+    "version": "0.1.3",
     "exports": "./src/index.ts",
     "publish": {
         "include": [
@@ -42,8 +42,12 @@
         "$shields/crossdomain": "./src/shields/crossdomain/index.ts",
         "$shields/dnsprefetch": "./src/shields/dns-prefetch-control/index.ts",
         "$shields/dontsniff": "./src/shields/dont-sniff-mimetype/index.ts",
+        "$shields/expectct": "./src/shields/expect-ct/index.ts",
+        "$shields/featurepolicy": "./src/shields/feature-policy/index.ts",
+        "$shields/frameguard": "./src/shields/frameguard/index.ts",
         "$shields/hide_powered_by": "./src/shields/hide-powered-by/index.ts",
         "$shields/ienoopen": "./src/shields/ienoopen/index.ts",
+        "$shields/referrer": "./src/shields/referrer-policy/index.ts",
         "$types": "./types/types.ts"
     }
 }

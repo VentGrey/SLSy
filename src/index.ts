@@ -1,10 +1,14 @@
 import OakRequestResponse from "$interfaces";
 
-import hidePoweredBy from "$shields/hide_powered_by";
-import ienoopen from "$shields/ienoopen";
 import crossdomain from "$shields/crossdomain";
 import dnsPrefetchControl from "$shields/dnsprefetch";
 import dontSniffMimetype from "$shields/dontsniff";
+import expectCt from "$shields/expectct";
+import frameguard from "$shields/frameguard";
+import hidePoweredBy from "$shields/hide_powered_by";
+import featurePolicy from "$shields/featurepolicy";
+import ienoopen from "$shields/ienoopen";
+import referrerPolicy from "$shields/referrer";
 
 import { Request, Response } from "@oak/oak";
 import { SLSyOptions } from "$types";
@@ -51,12 +55,28 @@ export class Slsy {
             );
         }
 
+        if (this.options.expectCt !== null) {
+            expectCt(requestResponse, this.options.expectCt);
+        }
+
+        if (this.options.frameguard !== null) {
+            frameguard(requestResponse, this.options.frameguard);
+        }
+
         if (this.options.hidePoweredBy !== null) {
             hidePoweredBy(requestResponse, this.options.hidePoweredBy);
         }
 
         if (this.options.ienoopen !== null) {
             ienoopen(requestResponse);
+        }
+
+        if (this.options.referrerPolicy !== null) {
+            referrerPolicy(requestResponse, this.options.referrerPolicy);
+        }
+
+        if (this.options.featurePolicy !== null) {
+            featurePolicy(requestResponse, this.options.featurePolicy);
         }
 
         return requestResponse.response;
