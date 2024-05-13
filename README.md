@@ -21,6 +21,37 @@ you see in this repo with a grain of salt.
 - No CORS, browser tasks are for the browser, not the server.
 - Hopefully, tiny.
 
+## Examples
+
+You can find some examples in the `tests/` directory. Although tests are not
+ready yet you can test this library for yourself by invoking it. Below you'll
+find an example using the `hide-powered-by` module:
+
+```typescript
+import { Application, Context, Next } from "@oak/oak";
+import { Slsy } from "@ventgrey/slsy;
+
+const app: Application = new Application();
+const slsy: Slsy = new Slsy({
+    hidePoweredBy: {
+        setTo: "Deno-saurius",
+    },
+    ienoopen: true,
+});
+
+app.use((ctx: Context, next: Next) => {
+    ctx.response = slsy.slsy(ctx.request, ctx.response);
+
+    next();
+});
+
+app.use((ctx: Context) => {
+    ctx.response.body = { message: "Hello JSR fellas!" };
+});
+
+await app.listen({ port: 9555 });
+```
+
 ## License
 
 SLSy is licensed under the Gnu Affero General Public License (AGPLv3). You can
