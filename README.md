@@ -2,6 +2,11 @@
 
 > And I know I don't need you now...
 
+
+[![JSR](https://jsr.io/badges/@ventgrey/slsy)](https://jsr.io/badges/@ventgrey/slsy)
+[![JSR Score](https://jsr.io/badges/@ventgrey/slsy/score)](https://jsr.io/@ventgrey/slsy)
+
+
 ## Introduction
 
 SLSy is a tiny middleware for [Oak](https://oakserver.github.io/oak/) that acts
