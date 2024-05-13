@@ -1,21 +1,31 @@
 import OakRequestResponse from "$interfaces";
+import hidePoweredBy from "$shields/hide_powered_by";
+import ienoopen from "$shields/ienoopen";
+import { Request, Response } from "@oak/oak";
+import { SLSyOptions } from "$types";
 
 /**
- * Tiny Oak security middleware similar to Express.js's helmet
- * heavily inspired on [snelm](https://deno.land/x/snelm@1.3.0)
+ * This class represents a SLSy middleware.
  */
-export class slsy {
-    private _options: any;
-    private _framework: any;
+export class Slsy {
+    private options: SLSyOptions;
 
-    constructor(options: any = {}) {
-        this._options = options;
-        this._framework = OakRequestResponse;
+    constructor(options: SLSyOptions = {}) {
+        this.options = options;
     }
 
-    public slsy(request: any, response: any): any {
-      const requestResponse = new this._framework(request, response);
+    public slsy(request: Request, response: Response): Response {
+        const requestResponse = new OakRequestResponse(request, response);
 
-      return requestResponse.response;
+
+        if (this.options.hidePoweredBy !== null) {
+            hidePoweredBy(requestResponse, this.options.hidePoweredBy);
+        }
+
+        if (this.options.ienoopen !== null) {
+            ienoopen(requestResponse);
+        }
+
+        return requestResponse.response;
     }
 }
