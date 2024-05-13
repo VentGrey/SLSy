@@ -3,7 +3,7 @@ import { HidePoweredByOptions } from "$types";
 
 /**
  * Hides or sets a custom value for the 'X-Powered-By' response header.
- * 
+ *
  * This is a modified version of the 'hide-powered-by' express middleware.
  *
  * @param {RequestResponseInterface} requestResponse - Interface for handling request and response headers.
@@ -16,5 +16,7 @@ export default function hidePoweredBy(
 ): void {
     const setTo: string | null = options?.setTo ?? null;
 
-    setTo ? requestResponse.setResponseHeader("X-Powered-By", setTo) : requestResponse.removeResponseHeader("X-Powered-By");
+    setTo
+        ? requestResponse.setResponseHeader("X-Powered-By", setTo)
+        : requestResponse.removeResponseHeader("X-Powered-By");
 }

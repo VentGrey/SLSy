@@ -4,9 +4,9 @@ import { Slsy } from "../src/index.ts";
 const app: Application = new Application();
 const slsy: Slsy = new Slsy({
     hidePoweredBy: {
-        setTo: "Deno with Typoscript"
+        setTo: "Deno with Typoscript",
     },
-    ienoopen: true
+    ienoopen: true,
 });
 
 app.use((ctx: Context, next: Next) => {
@@ -16,7 +16,7 @@ app.use((ctx: Context, next: Next) => {
 });
 
 app.use((ctx: Context) => {
-    ctx.response.body = { message: "Hello from Dino-Saurio" } 
+    ctx.response.body = { message: "Hello from Dino-Saurio" };
 });
 
 await app.listen({ port: 9555 });

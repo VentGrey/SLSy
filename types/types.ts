@@ -1,8 +1,8 @@
 export interface HidePoweredByOptions {
-    setTo?: string
+    setTo?: string;
 }
 
 export interface SLSyOptions {
-    hidePoweredBy?: HidePoweredByOptions | null
-    ienoopen?: boolean | null
+    hidePoweredBy?: HidePoweredByOptions | null;
+    ienoopen?: boolean | null;
 }

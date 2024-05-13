@@ -17,7 +17,6 @@ export class Slsy {
     public slsy(request: Request, response: Response): Response {
         const requestResponse = new OakRequestResponse(request, response);
 
-
         if (this.options.hidePoweredBy !== null) {
             hidePoweredBy(requestResponse, this.options.hidePoweredBy);
         }

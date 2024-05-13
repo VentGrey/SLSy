@@ -6,6 +6,8 @@ import { RequestResponseInterface } from "$interfaces";
  * @param {RequestResponseInterface} requestResponse - The request response object.
  * @return {void} This function does not return anything.
  */
-export default function ienoopen(requestResponse: RequestResponseInterface): void {
+export default function ienoopen(
+    requestResponse: RequestResponseInterface,
+): void {
     requestResponse.setResponseHeader("X-Download-Options", "noopen");
 }
