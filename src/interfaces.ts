@@ -11,7 +11,6 @@ export interface RequestResponseInterface {
     removeResponseHeader(headerKey: string): void;
 }
 
-
 /**
  * Derived from snelm@1.3.0 - https://deno.land/x/snelm@1.3.0/frameworks/interface.ts
  * Original license: MIT
