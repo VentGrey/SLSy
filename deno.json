@@ -1,39 +1,41 @@
 {
-  "name": "@ventgrey/slsy",
-  "version": "0.1.0",
-  "exports": "./src/index.ts",
-  "publish": {
-    "include": [
-      "deno.json",
-      "src",
-      "README.md"
-    ]
-  },
-  "compilerOptions": {
-    "allowJs": false,
-    "strict": true
-  },
-  "fmt": {
-    "useTabs": false,
-    "lineWidth": 80,
-    "indentWidth": 4,
-    "semiColons": true,
-    "singleQuote": false,
-    "proseWrap": "always"
-  },
-  "lint": {
-    "include": ["src/**/*.ts", "tests/**/*.ts"],
-    "rules": {
-      "tags": ["recommended"],
-      "include": [
-        "ban-untagged-todo",
-        "eqeqeq",
-        "explicit-function-return-type",
-        "no-console"
-      ]
+    "name": "@ventgrey/slsy",
+    "version": "0.1.0",
+    "exports": "./src/index.ts",
+    "publish": {
+        "include": [
+            "deno.json",
+            "src",
+            "README.md"
+        ]
+    },
+    "compilerOptions": {
+        "allowJs": false,
+        "strict": true
+    },
+    "fmt": {
+        "useTabs": false,
+        "lineWidth": 80,
+        "indentWidth": 4,
+        "semiColons": true,
+        "singleQuote": false,
+        "proseWrap": "always"
+    },
+    "lint": {
+        "include": ["src/**/*.ts", "tests/**/*.ts"],
+        "rules": {
+            "tags": ["recommended"],
+            "include": [
+                "ban-untagged-todo",
+                "eqeqeq",
+                "explicit-function-return-type",
+                "no-console"
+            ]
+        }
+    },
+    "imports": {
+        "@oak/oak": "jsr:@oak/oak@^16.0.0",
+        "@std/assert": "jsr:@std/assert@^0.225.1",
+        "$interfaces": "./src/interfaces.ts"
     }
-  },
-  "imports": {
-    "@std/assert": "jsr:@std/assert@^0.225.1"
-  }
 }
