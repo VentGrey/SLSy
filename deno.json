@@ -6,6 +6,7 @@
         "include": [
             "deno.json",
             "src",
+            "types",
             "README.md"
         ]
     },
