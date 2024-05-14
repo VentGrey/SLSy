@@ -9,30 +9,37 @@
 
 SLSy is a tiny middleware for [Oak](https://oakserver.github.io/oak/) that acts
 as a tiny replacement for the Express.js helmet middleware. Heavily inspired on
-snelm which, in turn is heavily based on [helmet](https://www.npmjs.com/package/helmet).
+snelm which, in turn is heavily based on
+[helmet](https://www.npmjs.com/package/helmet).
 
 The Deno version hosted at [deno.land/x/snelm](https://deno.land/x/snelm) last
 update was 4 years ago.
 
 ## Basic Usage 🎉
 
-SlSy has a similar interface to  `snelm`. Usage is pretty simple, just instantiate a new `Slsy` class and pass both `request` and `response` objects to the `slsy` method.
+SlSy has a similar interface to `snelm`. Usage is pretty simple, just
+instantiate a new `Slsy` class and pass both `request` and `response` objects to
+the `slsy` method.
 
-SlSy sticks to `snelm`s configurability and features as much as possible. It includes most of the `snelm`'s components. You can disable any component by setting it to `null`.
+SlSy sticks to `snelm`s configurability and features as much as possible. It
+includes most of the `snelm`'s components. You can disable any component by
+setting it to `null`.
 
-For example, if you wish to hide the `X-Powered-By` header, you can do it like this:
+For example, if you wish to hide the `X-Powered-By` header, you can do it like
+this:
 
 ```typescript
 const slsy: Slsy = new Slsy({
-    hidePoweredBy: null
+    hidePoweredBy: null,
 });
 ```
 
-The `expectCt` module is enabled by default. You can disable it by setting it to `null`:
+The `expectCt` module is enabled by default. You can disable it by setting it to
+`null`:
 
 ```typescript
 const slsy: Slsy = new Slsy({
-    expectCt: null
+    expectCt: null,
 });
 ```
 
@@ -49,8 +56,8 @@ const slsy: Slsy = new Slsy({
 
 - Written for JSR, trying to keep up with Deno modern features.
 - Oak only. No other Deno servers are supported.
-- No CORS, browser security tasks should be taken care of by
-  the browser, not by the server.
+- No CORS, browser security tasks should be taken care of by the browser, not by
+  the server.
 - Hopefully, tiny and in sync with helmet.
 - Actively maintained.
 
@@ -98,7 +105,10 @@ For more information, see [LICENSE](LICENSE)
 Most shields come from `snelm` which uses the `helmet` source code, both are
 released under the MIT license.
 
-The `helmet` code used in this repository is the one available at snelm's [deno page](https://deno.land/x/snelm@1.3.0), which was last updated 4 years ago. This was on purpose, to avoid grabbing new code from helmet and instead focusing on rewriting the codebase for Deno Typescript + Oak.
+The `helmet` code used in this repository is the one available at snelm's
+[deno page](https://deno.land/x/snelm@1.3.0), which was last updated 4 years
+ago. This was on purpose, to avoid grabbing new code from helmet and instead
+focusing on rewriting the codebase for Deno Typescript + Oak.
 
 > SLSy stands for _Second Life Syndrome_ as a tribute to a song by Riverside ~
 > No copyright infringement intended.
