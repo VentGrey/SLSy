@@ -9,7 +9,7 @@ const slsy: Slsy = new Slsy({
     crossdomain: null,
     dnsPrefetchControl: {
         allow: false,
-    }
+    },
 });
 
 const mw: Middleware = async (ctx: Context, next: Next) => {
@@ -33,5 +33,3 @@ Deno.test({
         );
     },
 });
-
-
