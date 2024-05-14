@@ -4,6 +4,9 @@
 
 [![JSR](https://jsr.io/badges/@ventgrey/slsy)](https://jsr.io/badges/@ventgrey/slsy)
 [![JSR Score](https://jsr.io/badges/@ventgrey/slsy/score)](https://jsr.io/@ventgrey/slsy)
+[![Deno CI](https://github.com/VentGrey/SLSy/actions/workflows/deno.yml/badge.svg)](https://github.com/VentGrey/SLSy/actions/workflows/deno.yml)
+[![Publish to JSR](https://github.com/VentGrey/SLSy/actions/workflows/publish.yml/badge.svg)](https://github.com/VentGrey/SLSy/actions/workflows/publish.yml)
+![GitHub License](https://img.shields.io/github/license/VentGrey/slsy)
 
 ## Introduction 👀
 
