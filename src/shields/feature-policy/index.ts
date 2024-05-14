@@ -71,56 +71,78 @@ function getHeaderValueFromOptions(
     };
 
     if (!isPlainObject(options)) {
-        throw new TypeError(`featurePolicy must be called with an object argument. You passed: ${options}`);
+        throw new TypeError(
+            `featurePolicy must be called with an object argument. You passed: ${options}`,
+        );
     }
 
     const { features } = options;
     if (!isPlainObject(features)) {
-        throw new Error(`featurePolicy must have a single key, "features", which is an object of features.`);
+        throw new Error(
+            `featurePolicy must have a single key, "features", which is an object of features.`,
+        );
     }
 
+    const result = Object.entries(features).map(
+        ([featureKeyCamelCase, featureValue]) => {
+            if (
+                !Object.prototype.hasOwnProperty.call(
+                    FEATURES,
+                    featureKeyCamelCase,
+                )
+            ) {
+                throw new Error(
+                    `featurePolicy does not support the "${featureKeyCamelCase}" feature.`,
+                );
+            }
 
-  const result = Object.entries(features).map(([featureKeyCamelCase, featureValue]) => {
-    if (!Object.prototype.hasOwnProperty.call(FEATURES, featureKeyCamelCase)) {
-      throw new Error(`featurePolicy does not support the "${ featureKeyCamelCase }" feature.`);
+            if (!Array.isArray(featureValue) || featureValue.length === 0) {
+                throw new Error(
+                    `The value of the "${featureKeyCamelCase}" feature must be a non-empty array of strings.`,
+                );
+            }
+
+            const allowedValuesSeen: Set<string> = new Set();
+
+            featureValue.forEach((allowedValue) => {
+                if (typeof allowedValue !== "string") {
+                    throw new Error(
+                        `The value of the "${featureKeyCamelCase}" feature contains a non-string, which is not supported.`,
+                    );
+                } else if (allowedValuesSeen.has(allowedValue)) {
+                    throw new Error(
+                        `The value of the "${featureKeyCamelCase}" feature contains duplicates, which it shouldn't.`,
+                    );
+                } else if (allowedValue === "self") {
+                    throw new Error("'self' must be quoted.");
+                } else if (allowedValue === "none") {
+                    throw new Error("'none' must be quoted.");
+                }
+                allowedValuesSeen.add(allowedValue);
+            });
+
+            if (featureValue.length > 1) {
+                if (allowedValuesSeen.has("*")) {
+                    throw new Error(
+                        `The value of the "${featureKeyCamelCase}" feature cannot contain * and other values.`,
+                    );
+                } else if (allowedValuesSeen.has("'none'")) {
+                    throw new Error(
+                        `The value of the "${featureKeyCamelCase}" feature cannot contain 'none' and other values.`,
+                    );
+                }
+            }
+
+            const featureKeyDashed = FEATURES[featureKeyCamelCase];
+            return [featureKeyDashed, ...featureValue].join(" ");
+        },
+    ).join(";");
+
+    if (result.length === 0) {
+        throw new Error("At least one feature is required.");
     }
 
-    if (!Array.isArray(featureValue) || featureValue.length === 0) {
-      throw new Error(`The value of the "${featureKeyCamelCase}" feature must be a non-empty array of strings.`);
-    }
-
-    const allowedValuesSeen: Set<string> = new Set();
-
-    featureValue.forEach((allowedValue) => {
-      if (typeof allowedValue !== 'string') {
-        throw new Error(`The value of the "${featureKeyCamelCase}" feature contains a non-string, which is not supported.`);
-      } else if (allowedValuesSeen.has(allowedValue)) {
-        throw new Error(`The value of the "${featureKeyCamelCase}" feature contains duplicates, which it shouldn't.`);
-      } else if (allowedValue === 'self') {
-        throw new Error("'self' must be quoted.");
-      } else if (allowedValue === 'none') {
-        throw new Error("'none' must be quoted.");
-      }
-      allowedValuesSeen.add(allowedValue);
-    });
-
-    if (featureValue.length > 1) {
-      if (allowedValuesSeen.has('*')) {
-        throw new Error(`The value of the "${featureKeyCamelCase}" feature cannot contain * and other values.`);
-      } else if (allowedValuesSeen.has("'none'")) {
-        throw new Error(`The value of the "${featureKeyCamelCase}" feature cannot contain 'none' and other values.`);
-      }
-    }
-
-    const featureKeyDashed = FEATURES[featureKeyCamelCase];
-    return [featureKeyDashed, ...featureValue].join(' ');
-  }).join(';');
-
-  if (result.length === 0) {
-    throw new Error('At least one feature is required.');
-  }
-
-  return result;
+    return result;
 }
 
 /**

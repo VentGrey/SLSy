@@ -38,6 +38,5 @@ jobs:
       - name: Run linter
         run: deno lint
 
-# Tests are not ready yet.
-#      - name: Run tests
-#        run: deno test -A
+      - name: Run tests
+        run: deno test -A
