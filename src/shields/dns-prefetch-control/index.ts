@@ -10,11 +10,7 @@ import { RequestResponseInterface } from "$interfaces";
 function getHeaderValueFromOptions(
     options?: DnsPrefetchControlOptions,
 ): "on" | "off" {
-    if (options && options.allow) {
-        return "on";
-    } else {
-        return "off";
-    }
+    return options && options.allow ? "on" : "off";
 }
 
 /**

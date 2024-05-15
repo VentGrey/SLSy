@@ -10,27 +10,12 @@ import { CrossDomainOptions } from "$types";
  */
 function getHeaderValueFromOptions(options: CrossDomainOptions): string {
     const DEFAULT_PERMITTED_POLICIES: string = "none";
-    const ALLOWED_POLICIES: string[] = [
-        "none",
-        "master-only",
-        "by-content-type",
-        "all",
-    ];
+    const ALLOWED_POLICIES: string[] = ["none", "master-only", "by-content-type", "all"];
 
-    let permittedPolicies: string;
+    const permittedPolicies: string = options.permittedPolicies || DEFAULT_PERMITTED_POLICIES;
 
-    if ("permittedPolicies" in options) {
-        permittedPolicies = options.permittedPolicies as string;
-    } else {
-        permittedPolicies = DEFAULT_PERMITTED_POLICIES;
-    }
-
-    if (ALLOWED_POLICIES.indexOf(permittedPolicies) === -1) {
-        throw new Error(
-            `"${permittedPolicies}" is not a valid permitted policy.  Allowed policies are: ${
-                ALLOWED_POLICIES.join(", ")
-            }.`,
-        );
+    if (!ALLOWED_POLICIES.includes(permittedPolicies)) {
+        throw new Error(`"${permittedPolicies}" is not a valid permitted policy. Allowed policies are: ${ALLOWED_POLICIES.join(", ")}.`);
     }
 
     return permittedPolicies;

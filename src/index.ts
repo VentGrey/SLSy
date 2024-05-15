@@ -42,6 +42,7 @@ import { SLSyOptions } from "$types";
  *    });
  *    app.use((ctx: Context) => {
  *        ctx.response.body = { message: "Hello JSR fellas!" };
+ *    });
  * ```
  * @module
  */
@@ -62,6 +63,13 @@ export class Slsy {
         this.options = options;
     }
 
+    /**
+     * Calls various middleware functions based on the provided options and returns the response.
+     *
+     * @param {Request} request - The request object.
+     * @param {Response} response - The response object.
+     * @return {Response} The response object after applying middleware functions.
+     */
     public slsy(request: Request, response: Response): Response {
         const requestResponse = new OakRequestResponse(request, response);
 
