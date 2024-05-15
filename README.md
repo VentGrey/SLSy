@@ -10,9 +10,9 @@
 
 ## Introduction 👀
 
-SLSy is a tiny middleware for [Oak](https://oakserver.github.io/oak/) that acts
-as a tiny replacement for the Express.js helmet middleware. Heavily inspired on
-snelm which, in turn is heavily based on
+SLSy is a middleware for [Oak](https://oakserver.github.io/oak/) that acts as a
+tiny replacement for the Express.js helmet middleware. Heavily inspired on snelm
+which, in turn is heavily based on
 [helmet](https://www.npmjs.com/package/helmet).
 
 The Deno version hosted at [deno.land/x/snelm](https://deno.land/x/snelm) last
