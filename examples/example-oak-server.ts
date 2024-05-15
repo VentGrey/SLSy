@@ -11,7 +11,8 @@ const slsy: Slsy = new Slsy({
 
 app.use((ctx: Context, next: Next) => {
     ctx.response = slsy.slsy(ctx.request, ctx.response);
-
+    // Print headers
+    console.log(ctx.response.headers);
     next();
 });
 

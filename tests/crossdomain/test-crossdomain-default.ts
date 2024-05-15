@@ -4,9 +4,7 @@ import { assertEquals } from "@std/assert";
 
 import { Slsy } from "../../src/index.ts";
 
-const slsy: Slsy = new Slsy({
-    expectCt: null,
-});
+const slsy: Slsy = new Slsy();
 
 const mw: Middleware = async (ctx: Context, next: Next) => {
     ctx.response = slsy.slsy(ctx.request, ctx.response);

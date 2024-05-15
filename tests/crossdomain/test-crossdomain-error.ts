@@ -7,7 +7,6 @@ import { Slsy } from "../../src/index.ts";
 const invalid_value: string = "invalid-value";
 
 const slsy: Slsy = new Slsy({
-    expectCt: null,
     crossdomain: {
         permittedPolicies: invalid_value,
     },

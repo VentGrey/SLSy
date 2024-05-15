@@ -37,22 +37,24 @@ const slsy: Slsy = new Slsy({
 });
 ```
 
-The `expectCt` module is enabled by default. You can disable it by setting it to
-`null`:
+You can start a minimal configuration like this:
 
 ```typescript
-const slsy: Slsy = new Slsy({
-    expectCt: null,
-});
+const slsy: Slsy = new Slsy();
 ```
 
-The "minimum" configured example is as follows:
+This will set the following default headers:
 
-```typescript
-const slsy: Slsy = new Slsy({
-    hidePoweredBy: null,
-    expectCt: null,
-});
+```json
+Headers {
+  "cross-origin-resource-policy": "none",
+  "expect-ct": "maxAge=0",
+  "referrer-policy": "no-referrer",
+  "x-content-type-options": "nosniff",
+  "x-dns-prefetch-control": "off",
+  "x-download-options": "noopen",
+  "x-frame-options": "SAMEORIGIN"
+}
 ```
 
 ## Features 🌟

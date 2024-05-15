@@ -5,7 +5,6 @@ import { assertEquals } from "@std/assert";
 import { Slsy } from "../../src/index.ts";
 
 const slsy: Slsy = new Slsy({
-    expectCt: null,
     crossdomain: {
         permittedPolicies: "all",
     },

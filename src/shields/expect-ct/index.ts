@@ -22,7 +22,7 @@ function getHeaderValueFromOptions(options?: ExpectCtOptions): string {
 
     const maxAge: number | undefined = "maxAge" in options ? options.maxAge : 0;
 
-    if (!maxAge) {
+    if (maxAge === undefined || maxAge < 0) {
         throw new TypeError(
             "A positive number is required for the maxAge option",
         );
