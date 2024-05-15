@@ -19,6 +19,31 @@ import { SLSyOptions } from "$types";
  * @class Slsy
  * @field {SLSyOptions} [options={}] - The options for the class instance.
  * @returns {Slsy}
+ *
+ * @example Create an instance of the Slsy class
+ * ```ts
+ * const slsy: Slsy = new Slsy();
+ * ```
+ *
+ * @example Use the slsy middleware in an Oak application server
+ * ```ts
+ *  import { Application, Context, Next } from "@oak/oak";
+ *  import { Slsy } from "@ventgrey/slsy";
+ *   const app: Application = new Application();
+ *    const slsy: Slsy = new Slsy({
+ *      hidePoweredBy: {
+ *          setTo: "Deno-saurius",
+ *        },
+ *        ienoopen: true,
+ *    });
+ *    app.use((ctx: Context, next: Next) => {
+ *        ctx.response = slsy.slsy(ctx.request, ctx.response);
+ *        next();
+ *    });
+ *    app.use((ctx: Context) => {
+ *        ctx.response.body = { message: "Hello JSR fellas!" };
+ * ```
+ * @module
  */
 export class Slsy {
     /**
