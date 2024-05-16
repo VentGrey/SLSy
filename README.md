@@ -10,6 +10,9 @@
 
 ## Introduction 👀
 
+> [!WARNING]  
+> This library is pre 1.0.0, if you plan to use it in production please have a backup plan in case something stops working.
+
 SLSy is a middleware for [Oak](https://oakserver.github.io/oak/) that acts as a
 tiny replacement for the Express.js helmet middleware. Heavily inspired on snelm
 which, in turn is heavily based on
@@ -46,7 +49,7 @@ const slsy: Slsy = new Slsy();
 This will set the following default headers:
 
 ```json
-Headers {
+{
   "cross-origin-resource-policy": "none",
   "expect-ct": "maxAge=0",
   "referrer-policy": "no-referrer",
@@ -56,6 +59,11 @@ Headers {
   "x-frame-options": "SAMEORIGIN"
 }
 ```
+
+Since v0.1.6 I'm personally using this in a productive environment, however my use case might not match 1:1 with yours. If you encounter any bugs or breakage please report it.
+
+![image](https://github.com/VentGrey/SLSy/assets/24773698/3693bda0-661d-4db7-9516-85746313597f)
+
 
 ## Features 🌟
 
