@@ -1,4 +1,4 @@
-import { RequestResponseInterface } from "$interfaces";
+import { RequestResponseInterface } from "$types";
 
 /**
  * Sets the "X-Download-Options" response header to "noopen" for the given request response.

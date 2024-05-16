@@ -1,5 +1,4 @@
-import { RequestResponseInterface } from "$interfaces";
-import { FeaturePolicyOptions } from "$types";
+import { FeaturePolicyOptions, RequestResponseInterface } from "$types";
 
 /**
  * Checks if the given value is a plain object.

@@ -1,5 +1,4 @@
-import { RequestResponseInterface } from "$interfaces";
-import { ReferrerPolicyOptions } from "$types";
+import { ReferrerPolicyOptions, RequestResponseInterface } from "$types";
 
 /**
  * Retrieves the header value from the provided options based on the referrer policy.

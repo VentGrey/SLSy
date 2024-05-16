@@ -1,5 +1,4 @@
-import { RequestResponseInterface } from "$interfaces";
-import { FrameguardOptions } from "$types";
+import { FrameguardOptions, RequestResponseInterface } from "$types";
 
 /**
  * Parses the action option and returns the corresponding value.

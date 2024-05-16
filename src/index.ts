@@ -1,5 +1,3 @@
-import OakRequestResponse from "$interfaces";
-
 import crossdomain from "$shields/crossdomain";
 import dnsPrefetchControl from "$shields/dnsprefetch";
 import dontSniffMimetype from "$shields/dontsniff";
@@ -12,6 +10,7 @@ import referrerPolicy from "$shields/referrer";
 
 import { Request, Response } from "@oak/oak";
 import { SLSyOptions } from "$types";
+import OakRequestResponse from "$types";
 
 /**
  * This class represents a SLSy middleware.

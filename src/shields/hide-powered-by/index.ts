@@ -1,5 +1,4 @@
-import { RequestResponseInterface } from "$interfaces";
-import { HidePoweredByOptions } from "$types";
+import { HidePoweredByOptions, RequestResponseInterface } from "$types";
 
 /**
  * Hides or sets a custom value for the 'X-Powered-By' response header.

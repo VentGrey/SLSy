@@ -1,4 +1,4 @@
-import { RequestResponseInterface } from "$interfaces";
+import { RequestResponseInterface } from "$types";
 
 /**
  * Sets the 'X-Content-Type-Options' response header to 'nosniff' for the given request response.

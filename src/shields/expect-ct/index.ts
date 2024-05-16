@@ -1,5 +1,4 @@
-import { RequestResponseInterface } from "$interfaces";
-import { ExpectCtOptions } from "$types";
+import { ExpectCtOptions, RequestResponseInterface } from "$types";
 
 function parseMaxAge(option: number): number {
     if (option >= 0 && Number.isInteger(option)) {

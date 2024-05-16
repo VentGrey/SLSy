@@ -1,5 +1,4 @@
-import { DnsPrefetchControlOptions } from "$types";
-import { RequestResponseInterface } from "$interfaces";
+import { DnsPrefetchControlOptions, RequestResponseInterface } from "$types";
 
 /**
  * Returns the header value based on the given DnsPrefetchControlOptions object.

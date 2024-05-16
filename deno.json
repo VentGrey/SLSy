@@ -36,7 +36,6 @@
         }
     },
     "imports": {
-        "$interfaces": "./src/interfaces.ts",
         "$shields/crossdomain": "./src/shields/crossdomain/index.ts",
         "$shields/dnsprefetch": "./src/shields/dns-prefetch-control/index.ts",
         "$shields/dontsniff": "./src/shields/dont-sniff-mimetype/index.ts",
