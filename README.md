@@ -62,10 +62,7 @@ This will set the following default headers:
 ```
 
 Since v0.1.6 I'm personally using this in a productive environment, however my
-use case might not match 1:1 with yours. If you encounter any bugs or breakage
-please report it.
-
-![image](https://github.com/VentGrey/SLSy/assets/24773698/3693bda0-661d-4db7-9516-85746313597f)
+use case might not match 1:1 with yours.
 
 ## Features 🌟
 

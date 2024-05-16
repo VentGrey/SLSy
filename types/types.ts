@@ -96,10 +96,31 @@ export default class OakRequestResponse implements RequestResponseInterface {
     }
 }
 
+/**
+ * Interface for the crossdomain middleware options.
+ *
+ * Valid permitted policies are: 'none', 'master-only', 'by-content-type', 'all'.
+ * @param {string} permittedPolicies - The permitted policies for the 'Cross-Origin-Resource-Policy' header.
+ *
+ * By default, the 'Cross-Origin-Resource-Policy' header will be set to 'none'.
+ *
+ * @exports CrossDomainOptions
+ */
 export interface CrossDomainOptions {
     permittedPolicies?: string;
 }
 
+/**
+ * Interface for the dnsPrefetchControl middleware options.
+ * @param {boolean} allow - Whether to allow DNS prefetching.
+ *
+ * If set to true, the 'X-DNS-Prefetch-Control' header will be set to 'allow'.
+ * If set to false, the 'X-DNS-Prefetch-Control' header will be set to 'off'.
+ *
+ * By default, the 'X-DNS-Prefetch-Control' header will be set to 'off'.
+ *
+ * @exports DnsPrefetchControlOptions
+ */
 export interface DnsPrefetchControlOptions {
     allow?: boolean;
 }
@@ -108,6 +129,10 @@ export interface ExpectCtOptions {
     maxAge?: number;
     enforce?: boolean;
     reportUri?: string;
+}
+
+export interface ExpectHeaderOptions {
+    expectedHeader?: string;
 }
 
 export interface FeaturePolicyOptions {
@@ -127,6 +152,7 @@ export interface HstsOptions {
     includeSubDomains?: boolean;
     maxAge?: number | null;
     preload?: boolean;
+    setIf?: (requestResponse: RequestResponseInterface) => boolean;
 }
 
 export interface ReferrerPolicyOptions {
@@ -138,9 +164,11 @@ export interface SLSyOptions {
     dnsPrefetchControl?: DnsPrefetchControlOptions | null;
     dontSniffMimetype?: boolean | null;
     expectCt?: ExpectCtOptions | null;
+    expectHeader?: ExpectHeaderOptions | null;
     featurePolicy?: FeaturePolicyOptions | null;
     frameguard?: FrameguardOptions | null;
     hidePoweredBy?: HidePoweredByOptions | null;
+    hsts?: HstsOptions | null;
     ienoopen?: boolean | null;
     referrerPolicy?: ReferrerPolicyOptions | null;
 }

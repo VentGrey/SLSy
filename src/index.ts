@@ -2,9 +2,11 @@ import crossdomain from "$shields/crossdomain";
 import dnsPrefetchControl from "$shields/dnsprefetch";
 import dontSniffMimetype from "$shields/dontsniff";
 import expectCt from "$shields/expectct";
+import expectHeader from "$shields/expectheader";
+import featurePolicy from "$shields/featurepolicy";
 import frameguard from "$shields/frameguard";
 import hidePoweredBy from "$shields/hide_powered_by";
-import featurePolicy from "$shields/featurepolicy";
+import hsts from "$shields/hsts";
 import ienoopen from "$shields/ienoopen";
 import referrerPolicy from "$shields/referrer";
 
@@ -43,6 +45,7 @@ import OakRequestResponse from "$types";
  *        ctx.response.body = { message: "Hello JSR fellas!" };
  *    });
  * ```
+ *
  * @module
  */
 export class Slsy {
@@ -91,12 +94,20 @@ export class Slsy {
             expectCt(requestResponse, this.options.expectCt);
         }
 
+        if (this.options.expectHeader !== null) {
+            expectHeader(requestResponse, this.options.expectHeader);
+        }
+
         if (this.options.frameguard !== null) {
             frameguard(requestResponse, this.options.frameguard);
         }
 
         if (this.options.hidePoweredBy !== null) {
             hidePoweredBy(requestResponse, this.options.hidePoweredBy);
+        }
+
+        if (this.options.hsts !== null) {
+            hsts(requestResponse, this.options.hsts);
         }
 
         if (this.options.ienoopen !== null) {
