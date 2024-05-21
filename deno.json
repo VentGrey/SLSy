@@ -1,7 +1,7 @@
 {
     "name": "@ventgrey/slsy",
-    "version": "0.2.1",
-    "exports": "./src/index.ts",
+    "version": "0.2.4",
+    "exports": "./src/mod.ts",
     "publish": {
         "include": [
             "deno.json",
@@ -36,18 +36,18 @@
         }
     },
     "imports": {
-        "$shields/crossdomain": "./src/shields/crossdomain/index.ts",
-        "$shields/dnsprefetch": "./src/shields/dns-prefetch-control/index.ts",
-        "$shields/dontsniff": "./src/shields/dont-sniff-mimetype/index.ts",
-        "$shields/expectct": "./src/shields/expect-ct/index.ts",
-        "$shields/expectheader": "./src/shields/expect-header/index.ts",
-        "$shields/featurepolicy": "./src/shields/feature-policy/index.ts",
-        "$shields/frameguard": "./src/shields/frameguard/index.ts",
-        "$shields/hide_powered_by": "./src/shields/hide-powered-by/index.ts",
-        "$shields/hsts": "./src/shields/hsts/index.ts",
-        "$shields/ienoopen": "./src/shields/ienoopen/index.ts",
-        "$shields/referrer": "./src/shields/referrer-policy/index.ts",
-        "$types": "./types/types.ts",
+        "$shields/crossdomain": "./src/shields/crossdomain/mod.ts",
+        "$shields/dnsprefetch": "./src/shields/dns-prefetch-control/mod.ts",
+        "$shields/dontsniff": "./src/shields/dont-sniff-mimetype/mod.ts",
+        "$shields/expectct": "./src/shields/expect-ct/mod.ts",
+        "$shields/expectheader": "./src/shields/expect-header/mod.ts",
+        "$shields/featurepolicy": "./src/shields/feature-policy/mod.ts",
+        "$shields/frameguard": "./src/shields/frameguard/mod.ts",
+        "$shields/hide_powered_by": "./src/shields/hide-powered-by/mod.ts",
+        "$shields/hsts": "./src/shields/hsts/mod.ts",
+        "$shields/ienoopen": "./src/shields/ienoopen/mod.ts",
+        "$shields/referrer": "./src/shields/referrer-policy/mod.ts",
+        "$types": "./types/mod.ts",
         "@oak/oak": "jsr:@oak/oak@^16.0.0",
         "@std/assert": "jsr:@std/assert@^0.225.1"
     },

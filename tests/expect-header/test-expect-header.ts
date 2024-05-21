@@ -2,7 +2,7 @@ import { testing } from "@oak/oak";
 import type { Context, Middleware, Next } from "@oak/oak";
 import { assertEquals } from "@std/assert";
 
-import { Slsy } from "../../src/index.ts";
+import { Slsy } from "../../src/mod.ts";
 
 const EXPECTED_HEADER = "X-Reality-Dream";
 const EXPECTED_HEADER_VALUE = "III";
