@@ -1,5 +1,5 @@
 import { Application, Context, Next } from "@oak/oak";
-import { Slsy } from "../src/mod.ts";
+import { Slsy } from "../lib/mod.ts";
 
 const app: Application = new Application();
 const slsy: Slsy = new Slsy({
