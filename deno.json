@@ -1,6 +1,6 @@
 {
     "name": "@ventgrey/slsy",
-    "version": "0.2.5",
+    "version": "0.2.6",
     "exports": "./lib/mod.ts",
     "publish": {
         "include": [
@@ -23,7 +23,11 @@
         "proseWrap": "always"
     },
     "lint": {
-        "include": ["src/**/*.ts", "tests/**/*.ts"],
+        "include": [
+            "lib/**/*.ts",
+            "tests/**/*.ts",
+            "types/**/*.ts"
+        ],
         "rules": {
             "tags": ["recommended"],
             "include": [
