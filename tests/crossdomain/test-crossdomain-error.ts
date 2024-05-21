@@ -2,7 +2,7 @@ import { testing } from "@oak/oak";
 import type { Context, Middleware, Next } from "@oak/oak";
 import { assertRejects } from "@std/assert";
 
-import { Slsy } from "../../src/mod.ts";
+import { Slsy } from "../../lib/mod.ts";
 
 const invalid_value: string = "invalid-value";
 
