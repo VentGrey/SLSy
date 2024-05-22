@@ -66,14 +66,18 @@ export class Slsy {
     }
 
     /**
-     * Calls various middleware functions based on the provided options and returns the response.
+     * Calls various middleware functions based on the provided options and
+     * returns the response.
      *
      * @param {Request} request - The request object.
      * @param {Response} response - The response object.
-     * @return {Response} The response object after applying middleware functions.
+     * @return {Response} The response after applying middleware functions.
      */
     public slsy(request: Request, response: Response): Response {
-        const requestResponse = new OakRequestResponse(request, response);
+        const requestResponse: OakRequestResponse = new OakRequestResponse(
+            request,
+            response,
+        );
 
         if (this.options.crossdomain !== null) {
             crossdomain(requestResponse, this.options.crossdomain);

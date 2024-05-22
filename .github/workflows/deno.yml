@@ -16,6 +16,7 @@ on:
 
 permissions:
   contents: read
+  id-token: write # The OIDC ID token is used for authentication with JSR.    
 
 jobs:
   test:
@@ -40,3 +41,8 @@ jobs:
 
       - name: Run tests
         run: deno test -A
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: npx jsr publish
