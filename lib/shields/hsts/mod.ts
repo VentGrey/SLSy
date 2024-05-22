@@ -1,6 +1,15 @@
 import { HstsOptions, RequestResponseInterface } from "$types";
 
 /**
+ * This module contains functions for setting the 'Strict-Transport-Security'
+ * response header based on the provided options.
+ *
+ * @module
+ */
+
+// TODO(@ventgrey): Optimize this module
+
+/**
  * The default value for the 'max-age' option if none is provided.
  * This value is 180 days in seconds.
  */

@@ -1,5 +1,7 @@
 import { FeaturePolicyOptions, RequestResponseInterface } from "$types";
 
+// TODO(@ventgrey): Optimize this module
+
 /**
  * Checks if the given value is a plain object.
  *

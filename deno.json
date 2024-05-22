@@ -1,6 +1,6 @@
 {
     "name": "@ventgrey/slsy",
-    "version": "0.2.7",
+    "version": "1.0.0",
     "exports": "./lib/mod.ts",
     "publish": {
         "include": [
@@ -52,6 +52,7 @@
         "$shields/hsts": "./lib/shields/hsts/mod.ts",
         "$shields/ienoopen": "./lib/shields/ienoopen/mod.ts",
         "$shields/referrer": "./lib/shields/referrer-policy/mod.ts",
+        "$shields/xxssprotection": "./lib/shields/x-xss-protection/mod.ts",
         "$types": "./types/mod.ts",
         "@oak/oak": "jsr:@oak/oak@^16.0.0",
         "@std/assert": "jsr:@std/assert@^0.225.1"

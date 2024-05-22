@@ -1,6 +1,14 @@
 import { ReferrerPolicyOptions, RequestResponseInterface } from "$types";
 
 /**
+ * This module contains functions for setting the 'Referrer-Policy' response
+ *
+ * @module
+ */
+
+// TODO(@ventgrey): Optimize this module
+
+/**
  * Retrieves the header value from the provided options based on the referrer policy.
  *
  * @param {ReferrerPolicyOptions} options - The options object containing the referrer policy.

@@ -1,6 +1,13 @@
 import { HidePoweredByOptions, RequestResponseInterface } from "$types";
 
 /**
+ * This module contains functions for setting the 'X-Powered-By' response
+ * header based on the provided options.
+ *
+ * @module
+ */
+
+/**
  * Hides or sets a custom value for the 'X-Powered-By' response header.
  *
  * This is a modified version of the 'hide-powered-by' express middleware.

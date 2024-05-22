@@ -1,6 +1,13 @@
 import { RequestResponseInterface } from "$types";
 
 /**
+ * This module contains functions for setting the 'X-Content-Type-Options'
+ * response header to 'nosniff'.
+ *
+ * @module
+ */
+
+/**
  * Sets the 'X-Content-Type-Options' response header to 'nosniff' for the given request response.
  *
  * @param {RequestResponseInterface} requestResponse - The request and response interface.

@@ -1,6 +1,13 @@
 import { CrossDomainOptions, RequestResponseInterface } from "$types";
 
 /**
+ * This module contains functions for setting the 'Cross-Origin-Embedder-Policy'
+ * response header based on the provided options.
+ *
+ * @module
+ */
+
+/**
  * Retrieves the header value from the given CrossDomainOptions object.
  *
  * @param {CrossDomainOptions} options - The CrossDomainOptions object containing the permitted policies.

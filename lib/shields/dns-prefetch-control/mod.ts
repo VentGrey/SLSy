@@ -1,6 +1,13 @@
 import { DnsPrefetchControlOptions, RequestResponseInterface } from "$types";
 
 /**
+ * This module contains functions for setting the 'X-DNS-Prefetch-Control'
+ * response header based on the provided options.
+ *
+ * @module
+ */
+
+/**
  * Returns the header value based on the given DnsPrefetchControlOptions object.
  *
  * @param {DnsPrefetchControlOptions} [options] - The DnsPrefetchControlOptions object.

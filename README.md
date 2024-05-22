@@ -9,10 +9,6 @@
 
 ## Introduction 👀
 
-> [!WARNING]\
-> This library is pre 1.0.0, if you plan to use it in production please have a
-> backup plan in case something stops working.
-
 SLSy is a middleware for [Oak](https://oakserver.github.io/oak/) that acts as a
 tiny replacement for the Express.js helmet middleware. Heavily inspired on snelm
 which, in turn is heavily based on
@@ -53,10 +49,12 @@ This will set the following default headers:
     "cross-origin-resource-policy": "none",
     "expect-ct": "maxAge=0",
     "referrer-policy": "no-referrer",
+    "strict-transport-security": "max-age=15552000",
     "x-content-type-options": "nosniff",
     "x-dns-prefetch-control": "off",
     "x-download-options": "noopen",
-    "x-frame-options": "SAMEORIGIN"
+    "x-frame-options": "SAMEORIGIN",
+    "x-xss-protection": "1;mode=block"
 }
 ```
 

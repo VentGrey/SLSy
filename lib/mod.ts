@@ -9,6 +9,7 @@ import hidePoweredBy from "$shields/hide_powered_by";
 import hsts from "$shields/hsts";
 import ienoopen from "$shields/ienoopen";
 import referrerPolicy from "$shields/referrer";
+import xXssProtection from "$shields/xxssprotection";
 
 import { Request, Response } from "@oak/oak";
 import { SLSyOptions } from "$types";
@@ -124,6 +125,10 @@ export class Slsy {
 
         if (this.options.featurePolicy !== null) {
             featurePolicy(requestResponse, this.options.featurePolicy);
+        }
+
+        if (this.options.XXSSProtection !== null) {
+            xXssProtection(requestResponse, this.options.XXSSProtection);
         }
 
         return requestResponse.response;

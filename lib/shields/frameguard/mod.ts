@@ -1,6 +1,15 @@
 import { FrameguardOptions, RequestResponseInterface } from "$types";
 
 /**
+ * This module contains functions for setting the 'X-Frame-Options' response
+ * header based on the provided options.
+ *
+ * @module
+ */
+
+// TODO(@ventgrey): Optimize this module
+
+/**
  * Parses the action option and returns the corresponding value.
  *
  * @param {string | undefined} actionOption - The action option to parse.
