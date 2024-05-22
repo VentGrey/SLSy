@@ -1,6 +1,6 @@
 {
     "name": "@ventgrey/slsy",
-    "version": "0.2.6",
+    "version": "0.2.7",
     "exports": "./lib/mod.ts",
     "publish": {
         "include": [
@@ -35,7 +35,8 @@
                 "eqeqeq",
                 "explicit-function-return-type",
                 "no-console",
-                "prefer-ascii"
+                "prefer-ascii",
+                "no-slow-types"
             ]
         }
     },
