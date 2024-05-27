@@ -36,7 +36,7 @@ jobs:
           deno-version: v1.x
       # Change to deno task lint-docs until deno fixes it's deno doc fuckery
       - name: Run non-linted documentation generator
-        run: deno doc --html --name=SLSy --output=./docs ./lib/mod.ts ./types/mod.ts
+        run: deno doc --html --name=SLSy --output=./docs ./lib/mod.ts ./lib/types/mod.ts
       - name: Setup Pages
         uses: actions/configure-pages@v5
       - name: Upload artifact
