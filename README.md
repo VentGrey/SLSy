@@ -39,7 +39,10 @@ You can get a copy of SLSy from [JSR](https://jsr.io/@ventgrey/slsy).
 
 ### Generating documentation 📖
 
-I don't know what happens to `deno doc` right now, but running `deno task lint-docs` might or might not work, depending on how is Deno feeling today. Due to this being unreliable for the time being, you'll have to generate docs by yourself.
+I don't know what happens to `deno doc` right now, but running
+`deno task lint-docs` might or might not work, depending on how is Deno feeling
+today. Due to this being unreliable for the time being, you'll have to generate
+docs by yourself.
 
 See the [deno.json](deno.json) file for more information.
 

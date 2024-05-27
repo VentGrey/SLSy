@@ -1,6 +1,6 @@
 {
     "name": "@ventgrey/slsy",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "exports": "./lib/mod.ts",
     "publish": {
         "include": [
@@ -59,7 +59,7 @@
     },
     "tasks": {
         "lint-docs": "deno doc --html --lint --name=SLSy --output=./docs ./lib/mod.ts ./types/mod.ts",
-        "docs":  "deno doc --html --name=SLSy --output=./docs ./lib/mod.ts ./types/mod.ts"
+        "docs": "deno doc --html --name=SLSy --output=./docs ./lib/mod.ts ./types/mod.ts"
     },
     "test": {
         "include": [

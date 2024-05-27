@@ -34,14 +34,13 @@ export interface RequestResponseInterface {
  * ```
  */
 export default class OakRequestResponse implements RequestResponseInterface {
-
-    /** 
+    /**
      * The request object.
      * @type {Request}
      */
     private _request: Request;
 
-    /** 
+    /**
      * The response object.
      * @type {Response}
      */
@@ -123,7 +122,6 @@ export default class OakRequestResponse implements RequestResponseInterface {
  * By default, the 'Cross-Origin-Resource-Policy' header will be set to 'none'.
  */
 export interface CrossDomainOptions {
-
     /**
      * The permitted policies for the 'Cross-Origin-Resource-Policy' header.
      * Valid permitted policies are:
@@ -131,7 +129,7 @@ export interface CrossDomainOptions {
      * - `'master-only'`: 'Cross-Origin-Resource-Policy' header will be set to 'master-only'
      * - `'by-content-type'`: 'Cross-Origin-Resource-Policy' header will be set to 'by-content-type'
      * - `'all'`: 'Cross-Origin-Resource-Policy' header will be set to 'all'
-     * 
+     *
      * @type {string}
      */
     permittedPolicies?: string;
@@ -141,13 +139,12 @@ export interface CrossDomainOptions {
  * Interface for the dnsPrefetchControl middleware options.
  */
 export interface DnsPrefetchControlOptions {
-
     /**
      * Whether to allow DNS prefetching.
-     * 
+     *
      * - true: 'X-DNS-Prefetch-Control' header will be set to 'allow'
      * - false: 'X-DNS-Prefetch-Control' header will be set to 'off'
-     * 
+     *
      * @type {boolean}
      */
     allow?: boolean;
@@ -158,7 +155,6 @@ export interface DnsPrefetchControlOptions {
  * By default, the 'Expect-CT' header will be set to 'maxAge=0'
  */
 export interface ExpectCtOptions {
-
     /**
      * The maximum age of the 'Expect-CT' header.
      * @type {number}
@@ -183,7 +179,6 @@ export interface ExpectCtOptions {
  * By default, the 'Expected-Header' header will not be set.
  */
 export interface ExpectHeaderOptions {
-
     /**
      * The expected header value.
      * @type {string}
@@ -196,7 +191,6 @@ export interface ExpectHeaderOptions {
  * By default, the 'Feature-Policy' header will not be set.
  */
 export interface FeaturePolicyOptions {
-
     /**
      * The features for the 'Feature-Policy' header.
      * @type { { [featureName: string]: string[] } }
@@ -209,7 +203,6 @@ export interface FeaturePolicyOptions {
  * By default, the 'X-Frame-Options' header will not be set.
  */
 export interface FrameguardOptions {
-
     /**
      * The action for the 'X-Frame-Options' header.
      * @type {string}
@@ -240,7 +233,6 @@ export interface HidePoweredByOptions {
  * By default, the 'Strict-Transport-Security' header will not be set.
  */
 export interface HstsOptions {
-
     /**
      * Whether to include subdomains in the 'Strict-Transport-Security' header.
      * @type {boolean}
@@ -272,7 +264,6 @@ export interface HstsOptions {
  * By default, the 'Referrer-Policy' header will be set to 'no-referrer'.
  */
 export interface ReferrerPolicyOptions {
-
     /**
      * The policy for the 'Referrer-Policy' header.
      * @type {string | string[]}
@@ -285,7 +276,6 @@ export interface ReferrerPolicyOptions {
  * By default, the 'X-XSS-Protection' header will be set to '1; mode=block'.
  */
 export interface XxssProtectionOptions {
-
     /**
      * The mode for the 'X-XSS-Protection' header.
      * @type {"block" | null}
@@ -322,7 +312,6 @@ export interface XxssProtectionOptions {
  * - 'X-Download-Options': 'noopen'
  */
 export interface SLSyOptions {
-
     /**
      * The options for the 'Cross-Origin-Resource-Policy' header.
      * @type {CrossDomainOptions | null}

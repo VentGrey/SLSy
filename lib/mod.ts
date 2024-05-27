@@ -18,7 +18,7 @@ import OakRequestResponse from "$types";
 /**
  * This class represents a new Slsy singleton for you to use in your Oak
  * application as a middleware.
- * 
+ *
  * @class Slsy
  * @property {SLSyOptions} options - The options for the class instance.
  * @returns {Slsy}
@@ -59,12 +59,11 @@ export class Slsy {
     /**
      * Initializes a new instance of the class with the specified options.
      * @constructor
-     * 
+     *
      * @param {SLSyOptions} options - The options for the {@linkcode Slsy} instance.
      * @see {@linkcode SLSyOptions}
      */
     constructor(options: SLSyOptions = {}) {
-
         /**
          * The options for the class instance.
          * @type {SLSyOptions}
