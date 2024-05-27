@@ -139,3 +139,5 @@ export class Slsy {
         return requestResponse.response;
     }
 }
+
+export default Slsy;
