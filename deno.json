@@ -1,12 +1,11 @@
 {
     "name": "@ventgrey/slsy",
-    "version": "1.0.2",
+    "version": "1.1.0",
     "exports": "./lib/mod.ts",
     "publish": {
         "include": [
             "deno.json",
             "lib",
-            "types",
             "README.md"
         ]
     },
@@ -25,8 +24,7 @@
     "lint": {
         "include": [
             "lib/**/*.ts",
-            "tests/**/*.ts",
-            "types/**/*.ts"
+            "tests/**/*.ts"
         ],
         "rules": {
             "tags": ["recommended"],
@@ -53,13 +51,13 @@
         "$shields/ienoopen": "./lib/shields/ienoopen/mod.ts",
         "$shields/referrer": "./lib/shields/referrer-policy/mod.ts",
         "$shields/xxssprotection": "./lib/shields/x-xss-protection/mod.ts",
-        "$types": "./types/mod.ts",
+        "$types": "./lib/types/mod.ts",
         "@oak/oak": "jsr:@oak/oak@^16.0.0",
         "@std/assert": "jsr:@std/assert@^0.225.1"
     },
     "tasks": {
-        "lint-docs": "deno doc --html --lint --name=SLSy --output=./docs ./lib/mod.ts ./types/mod.ts",
-        "docs": "deno doc --html --name=SLSy --output=./docs ./lib/mod.ts ./types/mod.ts"
+        "lint-docs": "deno doc --html --lint --name=SLSy --output=./docs ./lib/mod.ts ./lib/types/mod.ts",
+        "docs": "deno doc --html --name=SLSy --output=./docs ./lib/mod.ts ./lib/types/mod.ts"
     },
     "test": {
         "include": [
