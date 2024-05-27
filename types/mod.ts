@@ -1,39 +1,32 @@
 import { Request, Response } from "@oak/oak";
 
 /**
- * This module contains the types for the SLSy middleware.
- * @module
- */
-
-/**
  * Derived from snelm@1.3.0 - https://deno.land/x/snelm@1.3.0/frameworks/interface.ts
- * Original license: MIT
+ * @license MIT
  *
  * This interface sets the common methods used to communicate with the SLSy
  * middleware.
- *
- * @param {function} getRequestHeader - Retrieves the value of the specified header from the request.
- * @param {function} getResponseHeader - Retrieves the value of the specified header from the response.
- * @param {function} setResponseHeader - Sets the value of a response header.
- * @param {function} removeResponseHeader - Removes a specific header from the response.
  */
 export interface RequestResponseInterface {
+    /** This function returns the value of the specified request header. */
     getRequestHeader(headerKey: string): string;
+
+    /** This function gets the value of the specified response header. */
     getResponseHeader(headerKey: string): string;
+
+    /** This function sets the value of the specified response header. */
     setResponseHeader(headerKey: string, headerValue: string): void;
+
+    /** This function removes the specified response header. */
     removeResponseHeader(headerKey: string): void;
 }
 
 /**
  * Derived from snelm@1.3.0 - https://deno.land/x/snelm@1.3.0/frameworks/interface.ts
- * Original license: MIT
+ * @license MIT
  *
  * This class represents an Oak request and response object. It is used to
  * communicate with the SLSy middleware.
- *
- * @param {Request} request - The request object.
- * @param {Response} response - The response object.
- * @returns {OakRequestResponse} - A new instance of the class.
  *
  * @example Create an instance of the OakRequestResponse class
  * ```typeScript
@@ -41,7 +34,17 @@ export interface RequestResponseInterface {
  * ```
  */
 export default class OakRequestResponse implements RequestResponseInterface {
+
+    /** 
+     * The request object.
+     * @type {Request}
+     */
     private _request: Request;
+
+    /** 
+     * The response object.
+     * @type {Response}
+     */
     private _response: Response;
 
     /**
@@ -117,126 +120,188 @@ export default class OakRequestResponse implements RequestResponseInterface {
 
 /**
  * Interface for the crossdomain middleware options.
- *
- * Valid permitted policies are: 'none', 'master-only', 'by-content-type', 'all'.
- * @param {string} permittedPolicies - The permitted policies for the 'Cross-Origin-Resource-Policy' header.
- *
  * By default, the 'Cross-Origin-Resource-Policy' header will be set to 'none'.
- *
- * @exports CrossDomainOptions
  */
 export interface CrossDomainOptions {
+
+    /**
+     * The permitted policies for the 'Cross-Origin-Resource-Policy' header.
+     * Valid permitted policies are:
+     * - `'none'`: 'Cross-Origin-Resource-Policy' header will be set to 'none'
+     * - `'master-only'`: 'Cross-Origin-Resource-Policy' header will be set to 'master-only'
+     * - `'by-content-type'`: 'Cross-Origin-Resource-Policy' header will be set to 'by-content-type'
+     * - `'all'`: 'Cross-Origin-Resource-Policy' header will be set to 'all'
+     * 
+     * @type {string}
+     */
     permittedPolicies?: string;
 }
 
 /**
  * Interface for the dnsPrefetchControl middleware options.
- * @param {boolean} allow - Whether to allow DNS prefetching.
- *
- * If set to true, the 'X-DNS-Prefetch-Control' header will be set to 'allow'.
- * If set to false, the 'X-DNS-Prefetch-Control' header will be set to 'off'.
- *
- * By default, the 'X-DNS-Prefetch-Control' header will be set to 'off'.
- *
- * @exports DnsPrefetchControlOptions
  */
 export interface DnsPrefetchControlOptions {
+
+    /**
+     * Whether to allow DNS prefetching.
+     * 
+     * - true: 'X-DNS-Prefetch-Control' header will be set to 'allow'
+     * - false: 'X-DNS-Prefetch-Control' header will be set to 'off'
+     * 
+     * @type {boolean}
+     */
     allow?: boolean;
 }
 
 /**
  * Interface for the expectCt middleware options.
- * @param {number} maxAge - The maximum age of the 'Expect-CT' header.
- * @param {boolean} enforce - Whether to enforce the 'Expect-CT' header.
- * @param {string} reportUri - The report URI for the 'Expect-CT' header.
- *
  * By default, the 'Expect-CT' header will be set to 'maxAge=0'
  */
 export interface ExpectCtOptions {
+
+    /**
+     * The maximum age of the 'Expect-CT' header.
+     * @type {number}
+     */
     maxAge?: number;
+
+    /**
+     * Whether to enforce the 'Expect-CT' header.
+     * @type {boolean}
+     */
     enforce?: boolean;
+
+    /**
+     * The report URI for the 'Expect-CT' header.
+     * @type {string}
+     */
     reportUri?: string;
 }
 
 /**
  * Interface for the expectHeader middleware options.
- * @param {string} expectedHeader - The expected header value.
- *
  * By default, the 'Expected-Header' header will not be set.
  */
 export interface ExpectHeaderOptions {
+
+    /**
+     * The expected header value.
+     * @type {string}
+     */
     expectedHeader?: string;
 }
 
 /**
  * Interface for the featurePolicy middleware options.
- * @param {object} features - The features for the 'Feature-Policy' header.
- *
  * By default, the 'Feature-Policy' header will not be set.
  */
 export interface FeaturePolicyOptions {
+
+    /**
+     * The features for the 'Feature-Policy' header.
+     * @type { { [featureName: string]: string[] } }
+     */
     features: { [featureName: string]: string[] };
 }
 
 /**
  * Interface for the frameguard middleware options.
- * @param {string} action - The action for the 'X-Frame-Options' header.
- * @param {string} domain - The domain for the 'X-Frame-Options' header.
- *
  * By default, the 'X-Frame-Options' header will not be set.
  */
 export interface FrameguardOptions {
+
+    /**
+     * The action for the 'X-Frame-Options' header.
+     * @type {string}
+     */
     action?: string;
+
+    /**
+     * The domain for the 'X-Frame-Options' header.
+     * @type {string}
+     */
     domain?: string;
 }
 
 /**
  * Interface for the hidePoweredBy middleware options.
- * @param {string} setTo - The value to set for the 'X-Powered-By' header.
- *
  * By default, the 'X-Powered-By' header will not be set.
  */
 export interface HidePoweredByOptions {
+    /**
+     * The value to set for the 'X-Powered-By' header.
+     * @type {string}
+     */
     setTo?: string;
 }
 
 /**
  * Interface for the hsts middleware options.
- * @param {boolean} includeSubDomains - Whether to include subdomains in the 'Strict-Transport-Security' header.
- * @param {number | null} maxAge - The maximum age of the 'Strict-Transport-Security' header.
- * @param {boolean} preload - Whether to preload the 'Strict-Transport-Security' header.
- * @param {(requestResponse: RequestResponseInterface) => boolean} setIf - A function that returns true if the 'Strict-Transport-Security' header should be set.
- *
  * By default, the 'Strict-Transport-Security' header will not be set.
  */
 export interface HstsOptions {
+
+    /**
+     * Whether to include subdomains in the 'Strict-Transport-Security' header.
+     * @type {boolean}
+     */
     includeSubDomains?: boolean;
+
+    /**
+     * The maximum age of the 'Strict-Transport-Security' header.
+     * @type {number | null}
+     */
     maxAge?: number | null;
+
+    /**
+     * Whether to preload the 'Strict-Transport-Security' header.
+     * @type {boolean}
+     */
     preload?: boolean;
+
+    /**
+     *  A function that returns true if the 'Strict-Transport-Security' header should be set.
+     * @param requestResponse The request and response interface.
+     * @returns {boolean}
+     */
     setIf?: (requestResponse: RequestResponseInterface) => boolean;
 }
 
 /**
  * Interface for the referrerPolicy middleware options.
- * @param {string | string[]} policy - The policy for the 'Referrer-Policy' header.
- *
  * By default, the 'Referrer-Policy' header will be set to 'no-referrer'.
  */
 export interface ReferrerPolicyOptions {
+
+    /**
+     * The policy for the 'Referrer-Policy' header.
+     * @type {string | string[]}
+     */
     policy?: string | string[];
 }
 
 /**
  * Interface for the X-XSS-Protection middleware options.
- * @param {string} mode - The mode for the 'X-XSS-Protection' header.
- * @param {string} reportUri - The report URI for the 'X-XSS-Protection' header.
- * @param {boolean} setOnOldIE - Whether to set the 'X-XSS-Protection' header to '1; mode=block' for old IE browsers.
- *
  * By default, the 'X-XSS-Protection' header will be set to '1; mode=block'.
  */
 export interface XxssProtectionOptions {
+
+    /**
+     * The mode for the 'X-XSS-Protection' header.
+     * @type {"block" | null}
+     */
     mode?: "block" | null;
+
+    /**
+     * The report URI for the 'X-XSS-Protection' header.
+     * @type {string}
+     */
     reportUri?: string;
+
+    /**
+     * Whether to set the 'X-XSS-Protection' header to '1; mode=block' for old IE browsers.
+     * @type {boolean}
+     */
     setOnOldIE?: boolean;
 }
 
@@ -244,18 +309,6 @@ export interface XxssProtectionOptions {
  * Interface for the SLSy middleware options.
  *
  * @exports SLSyOptions
- * @param {CrossDomainOptions} [crossdomain={}] - The options for the 'Cross-Origin-Resource-Policy' header.
- * @param {DnsPrefetchControlOptions} [dnsPrefetchControl={}] - The options for the 'X-DNS-Prefetch-Control' header.
- * @param {boolean} [dontSniffMimetype=null] - Whether to set the 'X-Content-Type-Options' header to 'nosniff'.
- * @param {ExpectCtOptions} [expectCt={}] - The options for the 'Expect-CT' header.
- * @param {ExpectHeaderOptions} [expectHeader={}] - The options for the 'Expect' header.
- * @param {FeaturePolicyOptions} [featurePolicy={}] - The options for the 'Feature-Policy' header.
- * @param {FrameguardOptions} [frameguard={}] - The options for the 'Frameguard' middleware.
- * @param {HidePoweredByOptions} [hidePoweredBy={}] - The options for the 'X-Powered-By' header.
- * @param {HstsOptions} [hsts={}] - The options for the 'HSTS' header.
- * @param {boolean} [ienoopen=null] - Whether to set the 'X-Download-Options' header to 'noopen'.
- * @param {ReferrerPolicyOptions} [referrerPolicy={}] - The options for the 'Referrer-Policy' header.
- * @param {XxssProtectionOptions} [XXSSProtection={}] - The options for the 'X-XSS-Protection' header.
  *
  * By default, some headers will be set to sensible values:
  * - 'Cross-Origin-Resource-Policy': 'none'
@@ -269,16 +322,76 @@ export interface XxssProtectionOptions {
  * - 'X-Download-Options': 'noopen'
  */
 export interface SLSyOptions {
+
+    /**
+     * The options for the 'Cross-Origin-Resource-Policy' header.
+     * @type {CrossDomainOptions | null}
+     */
     crossdomain?: CrossDomainOptions | null;
+
+    /**
+     * The options for the 'DNS-Prefetch-Control' header.
+     * @type {DnsPrefetchControlOptions | null}
+     */
     dnsPrefetchControl?: DnsPrefetchControlOptions | null;
+
+    /**
+     * Whether to set the 'X-Content-Type-Options' header to 'nosniff'.
+     * @type {boolean | null}
+     */
     dontSniffMimetype?: boolean | null;
+
+    /**
+     * The options for the 'Expect-CT' header.
+     * @type {ExpectCtOptions | null}
+     */
     expectCt?: ExpectCtOptions | null;
+
+    /**
+     * The options for the 'Expect' header.
+     * @type {ExpectHeaderOptions | null}
+     */
     expectHeader?: ExpectHeaderOptions | null;
+
+    /**
+     * The options for the 'Feature-Policy' header.
+     * @type {FeaturePolicyOptions | null}
+     */
     featurePolicy?: FeaturePolicyOptions | null;
+
+    /**
+     * The options for the 'Frameguard' middleware.
+     * @type {FrameguardOptions | null}
+     */
     frameguard?: FrameguardOptions | null;
+
+    /**
+     * The options for the `X-Powered-By` header.
+     * @type {HidePoweredByOptions | null}
+     */
     hidePoweredBy?: HidePoweredByOptions | null;
+
+    /**
+     * The options for the 'HSTS' header.
+     * @type {HstsOptions | null}
+     */
     hsts?: HstsOptions | null;
+
+    /**
+     * Whether to set the 'X-Download-Options' header to 'noopen'.
+     * @type {boolean | null}
+     */
     ienoopen?: boolean | null;
+
+    /**
+     * The options for the 'Referrer-Policy' header.
+     * @type {ReferrerPolicyOptions | null}
+     */
     referrerPolicy?: ReferrerPolicyOptions | null;
+
+    /**
+     * The options for the 'X-XSS-Protection' header.
+     * @type {XxssProtectionOptions | null}
+     */
     XXSSProtection?: XxssProtectionOptions | null;
 }

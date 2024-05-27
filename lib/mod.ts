@@ -16,10 +16,11 @@ import { SLSyOptions } from "$types";
 import OakRequestResponse from "$types";
 
 /**
- * This class represents a SLSy middleware.
- *
+ * This class represents a new Slsy singleton for you to use in your Oak
+ * application as a middleware.
+ * 
  * @class Slsy
- * @field {SLSyOptions} [options={}] - The options for the class instance.
+ * @property {SLSyOptions} options - The options for the class instance.
  * @returns {Slsy}
  *
  * @example Create an instance of the Slsy class
@@ -46,23 +47,28 @@ import OakRequestResponse from "$types";
  *        ctx.response.body = { message: "Hello JSR fellas!" };
  *    });
  * ```
- *
- * @module
  */
 export class Slsy {
     /**
-     * The options for the class instance.
-     *
+     * The options object to pass to the {@link Slsy} class.
+     * @private
      * @type {SLSyOptions}
      */
     private options: SLSyOptions;
 
     /**
      * Initializes a new instance of the class with the specified options.
-     *
-     * @param {SLSyOptions} [options={}] - The options for the class instance.
+     * @constructor
+     * 
+     * @param {SLSyOptions} options - The options for the {@linkcode Slsy} instance.
+     * @see {@linkcode SLSyOptions}
      */
     constructor(options: SLSyOptions = {}) {
+
+        /**
+         * The options for the class instance.
+         * @type {SLSyOptions}
+         */
         this.options = options;
     }
 
@@ -71,8 +77,8 @@ export class Slsy {
      * returns the response.
      *
      * @param {Request} request - The request object.
-     * @param {Response} response - The response object.
-     * @return {Response} The response after applying middleware functions.
+     * @param {Response}  response - The response object.
+     * @returns {Response} The response after applying middleware functions.
      */
     public slsy(request: Request, response: Response): Response {
         const requestResponse: OakRequestResponse = new OakRequestResponse(
