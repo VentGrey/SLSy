@@ -8,7 +8,7 @@ const slsy: Slsy = new Slsy({
     hsts: {
         includeSubDomains: true,
         maxAge: -1,
-        preload: true
+        preload: true,
     },
 });
 
@@ -30,6 +30,6 @@ Deno.test({
             },
             RangeError,
             "HSTS max-age must be a nonnegative number",
-        )
+        );
     },
 });

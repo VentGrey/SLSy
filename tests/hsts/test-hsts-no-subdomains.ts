@@ -8,7 +8,7 @@ const slsy: Slsy = new Slsy({
     hsts: {
         includeSubDomains: false,
         maxAge: 15552000,
-        preload: true
+        preload: true,
     },
 });
 
