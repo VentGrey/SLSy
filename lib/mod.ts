@@ -17,13 +17,14 @@ import OakRequestResponse from "$types";
 
 /**
  * This class represents a new Slsy singleton for you to use in your Oak
- * application as a middleware.
+ * application as a middleware. Slsy is designed to handle HTTP security headers
+ * inside your Oak application.
  *
  * @class Slsy
- * @property {SLSyOptions} options - The options for the class instance.
+ * @property {SLSyOptions} options - The {@linkcode SLSyOptions} for the class instance.
  * @returns {Slsy}
  *
- * @example Create an instance of the Slsy class
+ * @example Create an instance of the Slsy class with default options
  * ```ts
  * const slsy: Slsy = new Slsy();
  * ```
@@ -47,12 +48,14 @@ import OakRequestResponse from "$types";
  *        ctx.response.body = { message: "Hello JSR fellas!" };
  *    });
  * ```
+ *
+ * @see {@linkcode SLSyOptions} for more information on the available options.
  */
 export class Slsy {
     /**
      * The options object to pass to the {@link Slsy} class.
      * @private
-     * @type {SLSyOptions}
+     * @type {SLSyOptions} - The {@link SLSyOptions} options for the {@linkcode Slsy} instance.
      */
     private options: SLSyOptions;
 
@@ -140,4 +143,19 @@ export class Slsy {
     }
 }
 
-export default Slsy;
+/**
+ * Export all types used in the {@linkcode SLSyOptions} interface.
+ */
+export type {
+    CrossDomainOptions,
+    DnsPrefetchControlOptions,
+    ExpectCtOptions,
+    ExpectHeaderOptions,
+    FeaturePolicyOptions,
+    FrameguardOptions,
+    HidePoweredByOptions,
+    HstsOptions,
+    ReferrerPolicyOptions,
+    SLSyOptions,
+    XxssProtectionOptions,
+} from "$types";
