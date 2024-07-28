@@ -1,5 +1,8 @@
 # SLSy - Security Headers for Oak 🌳🛡️
 
+> [!IMPORTANT]
+> I'm no longer maintaining this library as I moved on to Hono. No further development is required in this repository (at least for me). 
+
 > And I know I don't need you now...
 
 [![JSR](https://jsr.io/badges/@ventgrey/slsy)](https://jsr.io/badges/@ventgrey/slsy)
